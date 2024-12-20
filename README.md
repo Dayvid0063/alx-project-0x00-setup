@@ -1,40 +1,89 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# Next.js Project Setup Guide
 
-## Getting Started
+## Introduction
+This guide walks through setting up a Next.js project using `create-next-app` with TypeScript and specific configurations.
 
-First, run the development server:
+## Prerequisites
+- Node.js installed on your system
+- Visual Studio Code (VSCode)
+- Basic familiarity with terminal commands
+
+## Project Setup Steps
+
+### 1. Open VSCode and Terminal
+1. Launch Visual Studio Code
+2. Open a new terminal by selecting:
+   - Menu: `Terminal -> New Terminal`
+   - Or use the keyboard shortcut: 
+     - Windows/Linux: `` Ctrl + ` ``
+     - Mac: `` Cmd + ` ``
+
+### 2. Project Creation
+Run the following command to create a new Next.js project:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npx create-next-app@latest alx-project-0x00 --typescript
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 3. Configuration Options
+When prompted, select the following options:
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+✅ **Yes** for:
+- Would you like to use ESLint? → Yes
+- Would you like to use Tailwind CSS? → Yes
+- Would you like to use `src/` directory? → No
+- Would you like to use App Router? → No
+- Would you like to customize the default import alias? → Yes
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+### 4. Start Development Server
+Once the project is created, start the development server:
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+```bash
+cd alx-project-0x00
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The application will be available at `http://localhost:3000`
 
-## Learn More
+## Project Structure
+After setup, your project structure should look similar to this:
 
-To learn more about Next.js, take a look at the following resources:
+```
+alx-project-0x00/
+├── .next/
+├── node_modules/
+├── pages/
+│   ├── _app.tsx
+│   ├── _document.tsx
+│   └── index.tsx
+├── public/
+├── styles/
+│   └── globals.css
+├── .eslintrc.json
+├── .gitignore
+├── next.config.js
+├── package.json
+├── postcss.config.js
+├── tailwind.config.js
+└── tsconfig.json
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+## Configuration Files
+- **next.config.js**: Next.js configuration
+- **tailwind.config.js**: Tailwind CSS configuration
+- **tsconfig.json**: TypeScript configuration
+- **.eslintrc.json**: ESLint rules and configuration
+- **postcss.config.js**: PostCSS plugins configuration
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Next Steps
+1. Explore the project structure
+2. Modify `pages/index.tsx` to start building your application
+3. Add new pages in the `pages` directory
+4. Style your components using Tailwind CSS
+5. Use TypeScript for type-safe development
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+## Common Commands
+- `npm run dev`: Start development server
+- `npm run build`: Create production build
+- `npm start`: Start production server
+- `npm run lint`: Run ESLint checks
