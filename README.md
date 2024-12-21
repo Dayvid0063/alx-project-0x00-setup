@@ -1,89 +1,120 @@
-# Next.js Project Setup Guide
+# Airbnb Clone Application
 
-## Introduction
-This guide walks through setting up a Next.js project using `create-next-app` with TypeScript and specific configurations.
+A Next.js-based Airbnb clone application showcasing modern web development practices with TypeScript and Tailwind CSS.
 
-## Prerequisites
-- Node.js installed on your system
-- Visual Studio Code (VSCode)
-- Basic familiarity with terminal commands
+## Project Setup and Structure
 
-## Project Setup Steps
-
-### 1. Open VSCode and Terminal
-1. Launch Visual Studio Code
-2. Open a new terminal by selecting:
-   - Menu: `Terminal -> New Terminal`
-   - Or use the keyboard shortcut: 
-     - Windows/Linux: `` Ctrl + ` ``
-     - Mac: `` Cmd + ` ``
-
-### 2. Project Creation
-Run the following command to create a new Next.js project:
-
+### Initial Setup
 ```bash
 npx create-next-app@latest alx-project-0x00 --typescript
 ```
 
-### 3. Configuration Options
-When prompted, select the following options:
+Configuration choices:
+- ✅ ESLint
+- ✅ Tailwind CSS
+- ❌ src/ directory
+- ❌ App Router
+- ✅ Import alias
 
-✅ **Yes** for:
-- Would you like to use ESLint? → Yes
-- Would you like to use Tailwind CSS? → Yes
-- Would you like to use `src/` directory? → No
-- Would you like to use App Router? → No
-- Would you like to customize the default import alias? → Yes
-
-### 4. Start Development Server
-Once the project is created, start the development server:
-
-```bash
-cd alx-project-0x00
-npm run dev
-```
-
-The application will be available at `http://localhost:3000`
-
-## Project Structure
-After setup, your project structure should look similar to this:
-
+### Project Structure
 ```
 alx-project-0x00/
-├── .next/
-├── node_modules/
+├── components/
+│   ├── Button.tsx
+│   ├── Card.tsx
+│   └── Pill.tsx
+├── interfaces/
+│   └── index.ts
 ├── pages/
 │   ├── _app.tsx
 │   ├── _document.tsx
-│   └── index.tsx
+│   ├── index.tsx
+│   ├── landing.tsx
+│   └── about.tsx
 ├── public/
-├── styles/
-│   └── globals.css
-├── .eslintrc.json
-├── .gitignore
-├── next.config.js
-├── package.json
-├── postcss.config.js
-├── tailwind.config.js
-└── tsconfig.json
+│   └── assets/
+│       └── images/
+│           ├── house.png
+│           └── star.png
+└── ... (other configuration files)
 ```
 
-## Configuration Files
-- **next.config.js**: Next.js configuration
-- **tailwind.config.js**: Tailwind CSS configuration
-- **tsconfig.json**: TypeScript configuration
-- **.eslintrc.json**: ESLint rules and configuration
-- **postcss.config.js**: PostCSS plugins configuration
+## Routing
+The project uses Next.js Pages Router for navigation:
+- `/` - Home page
+- `/landing` - Property listings page
+- `/about` - About page
 
-## Next Steps
-1. Explore the project structure
-2. Modify `pages/index.tsx` to start building your application
-3. Add new pages in the `pages` directory
-4. Style your components using Tailwind CSS
-5. Use TypeScript for type-safe development
+## Components
 
-## Common Commands
-- `npm run dev`: Start development server
-- `npm run build`: Create production build
-- `npm start`: Start production server
-- `npm run lint`: Run ESLint checks
+### Card Component
+A reusable property card component that displays:
+- Property image
+- Feature tags (using Pill component)
+- Property details and pricing
+- Amenity icons
+
+### Pill Component
+A reusable label component with TypeScript interface:
+```typescript
+interface PillProps {
+  title: string;
+}
+```
+
+Usage:
+```tsx
+<Pill title="Top Villa" />
+<Pill title="Self CheckIn" />
+<Pill title="Free Reschedule" />
+```
+
+### Button Component
+A customizable button component with various props:
+```typescript
+interface ButtonProps {
+  title: string;
+  size?: 'small' | 'medium' | 'large';
+  shape?: 'rounded-sm' | 'rounded-md' | 'rounded-full';
+  variant?: 'primary' | 'secondary';
+}
+```
+
+Usage:
+```tsx
+<Button title="Click Me" size="medium" shape="rounded-full" variant="primary" />
+```
+
+## TypeScript Integration
+- Interfaces for component props
+- Type safety for component properties
+- Centralized type definitions in interfaces directory
+
+## Development
+1. Install dependencies:
+```bash
+npm install
+```
+
+2. Run development server:
+```bash
+npm run dev
+```
+
+3. View the application:
+- Visit http://localhost:3000
+- Navigate to /landing and /about routes
+
+## Features
+- Responsive design with Tailwind CSS
+- Type-safe components with TypeScript
+- File-system based routing
+- Reusable UI components
+- Modern development practices
+
+## Best Practices
+- Component-based architecture
+- TypeScript for type safety
+- Centralized interfaces
+- Consistent code style with ESLint
+- Responsive design patterns
